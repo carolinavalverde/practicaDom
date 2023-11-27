@@ -57,3 +57,11 @@ console.log(btnVerMas[3]);
 
 // btnVerMas[3].addEventListener(`click`, ()=>{ verMas(`dsa`, `asd`, 23)});
 btnVerMas[3].addEventListener(`click`, verMas);
+
+
+
+// if (parrafo.style.visibility === "hidden") {
+//     parrafo.style.visibility = "visible";
+//   } else {
+//     parrafo.style.visibility = "hidden";
+//   }
