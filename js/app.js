@@ -13,10 +13,11 @@ const cambiarTitulo = () => {
 };
 
 const verMas = () => {
-  console.log(`Desde la funcion ver mas`);
-  //crear parrafo nuevo
-  const parrafoNuevo = document.createElement(`p`);
-  parrafoNuevo.innerText = `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas ratione, amet
+  if (btnVerMas[3].innerHTML === `Ver mas`) {
+    console.log(`Desde la funcion ver mas`);
+    //crear parrafo nuevo
+    const parrafoNuevo = document.createElement(`p`);
+    parrafoNuevo.innerText = `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas ratione, amet
   dolores maiores cupiditate optio beatae repudiandae eos numquam. Vel earum,
   expedita sit magnam veniam aperiam deserunt doloribus aliquam quam maiores
   delectus ipsa ex cumque placeat harum reiciendis? Atque vitae saepe voluptatibus
@@ -41,27 +42,28 @@ const verMas = () => {
   laboriosam tempore? Eligendi, ex magni vero itaque excepturi fugit dolorum atque
   adipisci voluptate facilis officia, at nulla modi dolor harum sit ratione amet
   eius quas aspernatur?`;
-  parrafoNuevo.className = `lead`;
+    parrafoNuevo.className = `lead`;
 
-  //traigo mi nodo padre o elemnto padre
-  const seccion = document.querySelector(`#contenedorPadre`);
-//   console.log(seccion);
-  //agregar un nodo hijo
-  //seccion.appendChild(parrafoNuevo); //se agrega el parrafo pero como ultimo hijo, al final
-  //seccion.prepend(parrafoNuevo); //se agrega al principio, como primer hijo
-  seccion.insertBefore(parrafoNuevo, btnVerMas[3]);
-};
+    //traigo mi nodo padre o elemnto padre
+    const seccion = document.querySelector(`#contenedorPadre`);
+    //   console.log(seccion);
+    //agregar un nodo hijo
+    //seccion.appendChild(parrafoNuevo); //se agrega el parrafo pero como ultimo hijo, al final
+    //seccion.prepend(parrafoNuevo); //se agrega al principio, como primer hijo
+    seccion.insertBefore(parrafoNuevo, btnVerMas[3]);
 
-const btnVerMas = document.getElementsByTagName(`button`);
-console.log(btnVerMas[3]);
+    btnVerMas[3].innerHTML = `Ocultar`;
+    btnVerMas[3].className = `btn btn-danger`;
+  } else {
+    // console.log(`aqui quiero eliminar el parrafo`);
+    seccion.removeChild(seccion.children[3]);
+    btnVerMas[3].innerHTML = `Ver mas`;
+    btnVerMas[3].className = `btn btn-primary`;
+  }
 
-// btnVerMas[3].addEventListener(`click`, ()=>{ verMas(`dsa`, `asd`, 23)});
-btnVerMas[3].addEventListener(`click`, verMas);
+  const btnVerMas = document.getElementsByTagName(`button`);
+  console.log(btnVerMas[3]);
 
-
-
-// if (parrafo.style.visibility === "hidden") {
-//     parrafo.style.visibility = "visible";
-//   } else {
-//     parrafo.style.visibility = "hidden";
-//   }
+  // btnVerMas[3].addEventListener(`click`, ()=>{ verMas(`dsa`, `asd`, 23)});
+  btnVerMas[3].addEventListener(`click`, verMas);
+}
